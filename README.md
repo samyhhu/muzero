@@ -24,6 +24,22 @@ MCTS Notes
   - simulation: complete random playout of node C, choose uniform random moves until game ends
   - backpropagation: use result of playout to update information of the node and Path from C to R
 
+Gym Notes
+---------
+- [Doc](https://gym.openai.com/docs/)
+- loop: [agent] -> action -> [environment] -> observation 
+- [observation, reward, done, info] = step()
+
+MuZero Notes
+-------------
+h: obs -> s,  takes stacks of observations to hidden state 
+g: (s(k-1), a(k)) -> (r(k), s(k))
+f: s(k) -> (p(k), v(k))
+
+mu: (obs, a(k)) -> (p(k), v(k), r(k))
+
+MCTS: (s(t), mu(0)) -> (v(t), pi(t))
+
 TODO
 ----
 - [x] implement mcts with tictactoe
