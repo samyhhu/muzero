@@ -1,16 +1,21 @@
 #!/usr/bin/python3
-import pdb
-from copy import deepcopy 
+'''
+MCTS
+'''
+from copy import deepcopy
 import random
 from tictactoe import *
 
 class State:
+  '''
+  state of each node
+  '''
   def __init__(self, board=None, player=None):
     self.visit = 0
     self.win = 0
     self.loss = 0
     self.draw = 0
-    self.board = board 
+    self.board = board
     self.player = player
 
   def __str__(self):
@@ -23,8 +28,8 @@ class State:
   def get_nextstates(self):
     nextstates = []
     next_player = State.get_opponent(self.player)
-    for i in range(0,3):
-      for j in range(0,3):
+    for i in range(0, 3):
+      for j in range(0, 3):
         if self.board[i][j] < 0: # spot open
           next_board = deepcopy(self.board)
           next_board[i][j] = next_player
@@ -34,7 +39,7 @@ class State:
 
   def update_playout(self, playout):
     if playout == self.player:
-      self.win +=1
+      self.win += 1
     elif playout == State.get_opponent(self.player):
       self.loss += 1
     else:

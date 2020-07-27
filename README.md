@@ -32,12 +32,17 @@ Gym Notes
 
 MuZero Notes
 -------------
-h: obs -> s,  takes stacks of observations to hidden state 
-g: (s(k-1), a(k)) -> (r(k), s(k))
+1. representation: takes stacks of observations to hidden state 
+- h: obs -> s
+
+2. dynamics: given previous state s(k-1) and action a(k), 
+             generate immediate reward r(k) and new state s(k)
+- g: (s(k-1), a(k)) -> (r(k), s(k))
+
+3. prediction: generate policy and value function from s(k)
 f: s(k) -> (p(k), v(k))
 
 mu: (obs, a(k)) -> (p(k), v(k), r(k))
-
 MCTS: (s(t), mu(0)) -> (v(t), pi(t))
 
 TODO
