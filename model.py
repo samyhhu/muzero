@@ -57,7 +57,7 @@ class MuZero():
       x = Dense(self.LAYER_DIM, activation='elu')(x)
     s_k = Dense(state_dim, name='s_k')(x)
     r_k = Dense(1, name='r_k')(x)
-    self.g = Mode([s_km1, a_k],  [r_k, s_k], name='g')
+    self.g = Model([s_km1, a_k],  [r_k, s_k], name='g')
 
     #f: s(k) -> (p(k), v(k))
     x = s_k = Input(state_dim)
