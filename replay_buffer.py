@@ -1,5 +1,16 @@
 class Game:
-  def __init__(self):
+  def __init__(self, env):
+    self.env = env
+    self.observations = []
+    self.history = []
+    self.rewards = []
+    self.policies = []
+    self.done = False
+    self.observation = env.reset()
+    self.total_reward = 0
+
+  def apply(self, action):
+    self.env.step(action)
     pass
 
 class ReplayBuffer:
@@ -9,6 +20,6 @@ class ReplayBuffer:
 
   def save_game(self, game):
     pass
-  
+
   def sample_game(self, game);
     pass
